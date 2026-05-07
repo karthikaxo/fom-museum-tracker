@@ -1,6 +1,6 @@
-# fom-museum-api (❁´◡`❁)
+# fom-museum-tracker (❁´◡`❁)
 
-A Python scraper and API for [Fields of Mistria](https://fieldsofmistria.wiki.gg/) that scrapes data from the wiki for all items that can be donated to the in-game museum. This data is provided via a FastAPI backend, with JSON datasets available for reference and/or further use.
+A Python scraper and API for [Fields of Mistria](https://www.fieldsofmistria.com/) that scrapes data from the [wiki](https://fieldsofmistria.wiki.gg/) for all items that can be donated to the in-game museum. This data is provided via a FastAPI backend, with JSON datasets available for reference and/or further use.
 
 ---
 
