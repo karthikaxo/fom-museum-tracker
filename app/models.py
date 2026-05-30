@@ -1,5 +1,5 @@
 from sqlalchemy import Column, JSON
-from sqlmodel import SQLModel, Field, create_engine, Relationship
+from sqlmodel import SQLModel, Field, Relationship
 
 
 # wings

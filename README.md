@@ -1,10 +1,13 @@
 # fom-museum-api (❁´◡`❁)
 
-A Python scraper and API for [Fields of Mistria](https://fieldsofmistria.wiki.gg/) that scrapes data from the wiki for all items that can be donated to the in-game museum. This data is provided via a FastAPI backend, with JSON datasets available for reference and/or further use.
+A web application for [Fields of Mistria](https://fieldsofmistria.wiki.gg/) that helps players track their progress toward completing 
+the in-game museum collection. The application uses web scrapers to collect item data and images from the 
+wiki for all museum donation items. This data is stored in a SQLite database and served through a FastAPI 
+backend, with a React frontend providing an interactive and user-friendly interface.
 
 ---
 
-## Project Structure ＼(ﾟｰﾟ＼)
+## Project Structure 
 ```
 fom-museum-api/
 │
@@ -67,7 +70,7 @@ Swagger UI:
 
 ---
 
-## Endpoints ⊙.☉
+## Endpoints 
 | Endpoint               | Description                                          |
 |------------------------|------------------------------------------------------|
 | `GET /wings`           | List all wings                                       |
@@ -76,7 +79,6 @@ Swagger UI:
 | `GET /sets/{set_id}`   | Mark a specific set as completed/incomplete          |
 | `GET /`                | List all available endpoints for scrapers            |
 | `GET /generate/{wing}` | Scrapes data and generates JSON for a specific wing  |
-| `GET /refresh/{wing}`  | Re-scrapes data and updates JSON for a specific wing |
 
 
 Valid {wing} names for generating JSON:
@@ -88,9 +90,3 @@ insects-wing, fish-wing, archaeology-wing, flora-wing
 * Frontend for marking an entire set as complete
 
 ---
-
-## Why I made this project ( ´･･)ﾉ(._.`) 
-I spent hundreds of hours in this game, and have 100% multiple save files. 
-On a recent update of this game, I realized that the trackers I used to note the items I collected 
-before were super outdated, so I thought, "Hey, ik a thing or two about coding. Maybe I should make my own." 
-And here it is!

@@ -21,7 +21,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # your frontend
+    allow_origins=["http://localhost:5173"], # frontend
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -54,7 +54,7 @@ def get_wings(session: Session = Depends(get_session),
     return result
 
 # -------------------- GET /wings/{wings_id} -----------------------
-@app.get("/wings/{wing_id}", response_model=WingModelExtra, description="Get a specific wing with optional sets/items")
+@app.get("/wings/{wing_id}", response_model=WingModelExtra, description="Get a specific wing with sets and items")
 def get_wing(
         wing_id: int,
         session: Session = Depends(get_session)):
@@ -71,7 +71,7 @@ def get_wing(
 
 
 # ------------------ PATCH /items/{items_id} --------------------
-@app.patch("/items/{item_id}", response_model=ItemModel, description="Mark an item as completed")
+@app.patch("/items/{item_id}", response_model=ItemModel, description="Mark an item as completed/incomplete")
 def update_item(update: ItemUpdate,
                 item_id: int = 1,
                 session: Session = Depends(get_session)):
@@ -132,14 +132,7 @@ def save_json_file(filename: str, data: dict):
 @app.get("/")
 def hello():
     return {
-        "generate_json_for": {
-            "individual": "/generate/{wing}",
-            "all": "/generate/all"
-        },
-        "refresh_json_for": {
-            "individual": "/refresh/{wing}",
-            "all": "/refresh/all"
-        },
+        "generate json for a wing": "/generate/{wing}",
         "wings": list(MUSEUM_WINGS.keys())
     }
 
@@ -151,12 +144,3 @@ def generate_wing(wing: str):
     data = MUSEUM_WINGS[wing]()
     save_json_file(f"{wing}.json", data)
     return JSONResponse({"message": f"{wing}.json generated", "sets": list(data.keys())})
-
-# JSON file refresher
-@app.post("/refresh/{wing}")
-def refresh_wing(wing: str):
-    if wing not in MUSEUM_WINGS:
-        raise HTTPException(status_code=404, detail=f"'{wing}' is not a valid wing. Format: [wing-type]-wing")
-    data = MUSEUM_WINGS[wing]()
-    save_json_file(f"{wing}.json", data)
-    return JSONResponse({"message": f"{wing}.json refreshed", "sets": list(data.keys())})
