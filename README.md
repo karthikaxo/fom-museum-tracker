@@ -71,14 +71,14 @@ Swagger UI:
 ---
 
 ## Endpoints 
-| Endpoint               | Description                                          |
-|------------------------|------------------------------------------------------|
-| `GET /wings`           | List all wings                                       |
-| `GET /wings/{wing_id}` | Get a specific wing, and its sets and items          |
-| `GET /items/{item_id}` | Mark a specific item as complete/incomplete          |
-| `GET /sets/{set_id}`   | Mark a specific set as completed/incomplete          |
-| `GET /`                | List all available endpoints for scrapers            |
-| `GET /generate/{wing}` | Scrapes data and generates JSON for a specific wing  |
+| Endpoint                 | Description                                          |
+|--------------------------|------------------------------------------------------|
+| `GET /wings`             | List all wings                                       |
+| `GET /wings/{wing_id}`   | Get a specific wing, and its sets and items          |
+| `PATCH /items/{item_id}` | Mark a specific item as complete/incomplete          |
+| `PATCH /sets/{set_id}`   | Mark a specific set as completed/incomplete          |
+| `GET /`                  | List all available endpoints for scrapers            |
+| `GET /generate/{wing}`   | Scrapes data and generates JSON for a specific wing  |
 
 
 Valid {wing} names for generating JSON:
