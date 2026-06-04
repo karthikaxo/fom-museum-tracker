@@ -80,6 +80,10 @@ function ItemRow( {item, columns }) {
                         completed: toggle
                     })
                 });
+
+            const updatedItem = await res.json();
+            setIsChecked(updatedItem.completed);
+
         } catch (error) {
             setIsChecked(!toggle)
             console.error(error)
